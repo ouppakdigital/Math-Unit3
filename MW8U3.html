@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- MathJax configuration (must come BEFORE the script) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <!-- MathJax loader (correct tag) -->
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <title>Oxford University Press Pakistan - Mathwise Book 8 - Unit 3</title>
+
+  <style>
+    :root {
+      --deep: #002147;
+      --sky: #7fd3ff;
+      --mint: #9ff3d0;
+      --sun: #ffd54f;
+      --peach: #ffb199;
+      --pink: #ff6f9b;
+      --card: #ffffff;
+      --muted: #5b6b7a;
+      --bg1: linear-gradient(180deg, #e6f7ff 0%, #fff7f0 60%);
+      --radius: 18px;
+      font-family: "Comic Sans MS", "Chalkboard SE", "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      background: var(--bg1);
+      color: var(--deep)
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 18px auto;
+      padding: 18px
+    }
+
+    header {
+      display: flex;
+      gap: 14px;
+      align-items: center
+    }
+
+    .logo {
+      width: 84px;
+      height: 84px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 30% 20%, #fff 0%, rgba(255, 255, 255, 0.2) 10%, var(--sky) 40%, var(--deep) 100%);
+      box-shadow: 0 10px 30px rgba(2, 33, 71, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #fff;
+      border: 4px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .logo .face {
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1
+    }
+
+    .title {
+      flex: 1
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0.2px
+    }
+
+    p.lead {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .quiz-card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 16px;
+      box-shadow: 0 12px 30px rgba(2, 33, 71, 0.06)
+    }
+
+    .controls-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      background: var(--deep);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(2, 33, 71, 0.08);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--deep);
+      border: 2px solid rgba(0, 33, 71, 0.06);
+      box-shadow: none;
+      font-weight: 700
+    }
+
+    .question {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      background: linear-gradient(180deg, #fff, #fbfdff)
+    }
+
+    .qnum {
+      min-width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, var(--sun), #ffd88a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--deep);
+      font-size: 18px;
+      box-shadow: 0 6px 18px rgba(255, 165, 0, 0.08)
+    }
+
+    .qbody {
+      flex: 1
+    }
+
+    .qtext {
+      font-size: 20px;
+      margin: 0 0 12px 0;
+      color: var(--deep);
+      font-weight: 900
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #fff, #f7fbff);
+      border: 2px solid rgba(0, 33, 71, 0.06);
+      cursor: pointer;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+    }
+
+    .option:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06)
+    }
+
+    .option input {
+      width: 20px;
+      height: 20px
+    }
+
+    .option.correct {
+      background: linear-gradient(90deg, #e6fff0, #f0fff8);
+      border-color: rgba(0, 160, 224, 0.14);
+    }
+
+    .option.incorrect {
+      background: linear-gradient(90deg, #fff0f2, #fff6f8);
+      border-color: rgba(255, 111, 97, 0.14);
+    }
+
+    /* Oxford themed feedback */
+    .feedback-box {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #f0fff7, #ffffff);
+      color: var(--deep);
+      font-weight: 700;
+      border-left: 6px solid var(--mint);
+      display: none;
+    }
+
+    /* Progress */
+    .progress-wrap {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .track {
+      flex: 1;
+      height: 64px;
+      background: linear-gradient(90deg, #fff, #f0fbff);
+      border-radius: 40px;
+      border: 3px solid rgba(0, 33, 71, 0.06);
+      position: relative;
+      overflow: visible
+    }
+
+    .finish-line {
+      position: absolute;
+      right: 8px;
+      top: 0;
+      height: 100%;
+      width: 8px;
+      background: repeating-linear-gradient(180deg, #fff, #fff 6px, #000 6px, #000 12px);
+      border-radius: 4px;
+    }
+
+    .tortoise {
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #fff, #fff7f0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      transition: left .6s cubic-bezier(.2, .9, .2, 1);
+    }
+
+    .prog-text {
+      min-width: 90px;
+      text-align: right;
+      color: var(--muted);
+      font-weight: 800
+    }
+
+    /* Timer pill */
+    .timer {
+      background: #fff;
+      border: 2px solid rgba(0, 33, 71, 0.06);
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-weight: 800;
+      color: var(--deep);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .big-score {
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--deep);
+      margin: 6px 0
+    }
+
+    @media (max-width:720px) {
+      .tortoise {
+        width: 52px;
+        height: 52px;
+        font-size: 28px
+      }
+
+      .qtext {
+        font-size: 18px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- HEADER -->
+    <header>
+      <div class="logo" aria-hidden="true">
+        <div class="face">😊</div>
+        <div style="font-size:12px;margin-top:6px;font-weight:800">Similarity &amp; Congruence</div>
+      </div>
+      <div class="title">
+        <h1>Mathwise Book 8 - Unit 3</h1>
+        <p class="lead">Select an answer → press Next → see feedback → press Next Question to continue.</p>
+      </div>
+    </header>
+
+    <!-- START CARD -->
+    <div class="quiz-card" id="startCard" aria-live="polite">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <h2 style="margin:0 0 6px 0">Ready to start?</h2>
+          <p style="margin:0;color:var(--muted)">One question at a time. Oxford-themed feedback with textbook equations.
+          </p>
+        </div>
+        <div class="controls-row">
+          <button id="startBtn" class="btn">Start Quiz</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUIZ AREA -->
+    <div id="quizArea" class="quiz-card" style="display:none" aria-live="polite">
+      <div id="questionContainer"></div>
+
+      <!-- Progress + Timer -->
+      <div class="progress-wrap" aria-hidden="false" style="margin-top:18px">
+        <div style="font-weight:800;color:var(--muted);min-width:90px">Progress</div>
+        <div class="track" id="track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="finish-line" aria-hidden="true"></div>
+          <div class="tortoise" id="tortoise" aria-hidden="true">🐢</div>
+        </div>
+        <div class="prog-text" id="progText">0 / 10</div>
+        <div class="timer" id="timer">Time left: 10:00</div>
+      </div>
+
+      <!-- Controls -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:12px">
+        <div style="color:var(--muted);font-weight:700" id="statusText">Question 1 of 10</div>
+        <div>
+          <button id="prevBtn" class="btn secondary" style="margin-right:8px" disabled>Previous</button>
+          <button id="nextBtn" class="btn" disabled>Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="resultArea"></div>
+
+    <div style="height:18px"></div>
+  </div>
+
+  <script>
+    /* ---------------- Config ---------------- */
+    const TOTAL_SECONDS = 10 * 60; // ⏱️ Set your total countdown time here (10 minutes default)
+
+    /* ---------------- MathJax helper ---------------- */
+    function typesetNow() {
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise();
+      } else {
+        setTimeout(typesetNow, 120);
+      }
+    }
+
+    /* ---------------- Quiz data ---------------- */
+    const quizData = [
+      {
+        q: "If y is directly proportional to x, and y = 12 when x = 3, what is the constant of proportionality (k)?",
+        choices: ["36", "4", "0.25", "9"],
+        correct: 1,
+        explain: `
+      For direct proportion, y = kx. Substituting the values: 12 = k × 3. Therefore, k = 12 ÷ 3 = 4.
+    `
+      },
+      {
+        q: "Which of the following equations represents an inverse proportion between x and y?",
+        choices: ["y = 5x", "y = x + 5", "xy = 10", "y/x = 10"],
+        correct: 2,
+        explain: `
+      In an inverse proportion, the product of the two variables is constant (xy = k). Options A and D represent direct proportion, and B is a linear relationship but not a proportion.
+    `
+      },
+      {
+        q: "6 men can build a wall in 10 days. How many days will it take 12 men to build the same wall, assuming they work at the same rate?",
+        choices: ["20 days", "15 days", "5 days", "8 days"],
+        correct: 2,
+        explain: `
+      This is an inverse proportion because more men will take less time. (M₁ × D₁) = (M₂ × D₂). So, 6 × 10 = 12 × x → 60 = 12x → x = 60 ÷ 12 = 5.
+    `
+      },
+      {
+        q: "When plotting a direct proportion on a graph, the resulting line must:",
+        choices: [
+          "Be a curve.",
+          "Be a straight line passing through the origin (0,0).",
+          "Be a horizontal line.",
+          "Be a straight line that does not touch the axes."
+        ],
+        correct: 1,
+        explain: `
+      A direct proportion (y = kx) always results in a straight line that passes through the origin because if x = 0, y must also be 0.
+    `
+      },
+      {
+        q: "If 5 machines produce 100 units in 2 hours, how many units will 10 machines produce in 4 hours?",
+        choices: ["200 units", "400 units", "100 units", "800 units"],
+        correct: 1,
+        explain: `
+      Using the proportionality concept: Units ∝ Machines × Time<br>
+      First scenario: 5 machines × 2 hours = 10 machine-hours → 100 units<br>
+      Second scenario: 10 machines × 4 hours = 40 machine-hours<br>
+      Unit production rate = 100 ÷ 10 = 10 units per machine-hour<br>
+      Total units = 40 × 10 = 400 units
+    `
+      },
+      {
+        q: "If a is inversely proportional to b, what happens to a if b is doubled?",
+        choices: [
+          "a is doubled.",
+          "a remains the same.",
+          "a is halved.",
+          "a is tripled."
+        ],
+        correct: 2,
+        explain: `
+      In inverse proportion, as one value increases, the other decreases by the same factor. Doubling b (×2) means a must be divided by 2.
+    `
+      },
+      {
+        q: "A car travels 150 km on 10 liters of fuel. How much fuel is needed for a 450 km journey?",
+        choices: ["20 liters", "45 liters", "30 liters", "15 liters"],
+        correct: 2,
+        explain: `
+      This is a direct proportion.<br>
+      \\[
+        \\frac{150}{10} = \\frac{450}{x} \\Rightarrow 15 = \\frac{450}{x} \\Rightarrow x = \\frac{450}{15} = 30
+      \\]
+    `
+      },
+      {
+        q: "Which table represents an inverse proportion?",
+        choices: [
+          `x | 1 | 2 | 3<br>y | 5 | 10 | 15`,
+          `x | 2 | 4 | 8<br>y | 12 | 6 | 3`,
+          `x | 4 | 5 | 6<br>y | 8 | 10 | 12`,
+          `x | 1 | 2 | 3<br>y | 1 | 4 | 9`
+        ],
+        correct: 1,
+        explain: `
+    In Table B, product xy is constant: 2 × 12 = 24; 4 × 6 = 24; and 8 × 3 = 24.
+  `
+      },
+
+      {
+        q: "Which graph correctly illustrates an Inverse Proportion?",
+        choices: [
+          "Straight line going upwards",
+          "Hyperbolic curve approaching axes",
+          "Horizontal line",
+          "Parabola opening upward"
+        ],
+        correct: 1,
+        explain: `
+      The graph of an inverse proportion (y = k/x) is a curve. As x increases, y decreases, but neither value ever reaches zero.
+    `
+      },
+      {
+        q: "On a map, 2 cm represents 50 km. If the distance between two cities on the map is 7.5 cm, what is the actual distance?",
+        choices: ["150 km", "187.5 km", "200 km", "375 km"],
+        correct: 1,
+        explain: `
+      Direct proportion: 2 cm → 50 km<br>
+      \\[
+        \\frac{2}{50} = \\frac{7.5}{x} \\Rightarrow 2x = 50 × 7.5 = 375 \\Rightarrow x = \\frac{375}{2} = 187.5 \\text{ km}
+      \\]
+    `
+      }
+    ];
+
+    /* ---------------- State ---------------- */
+    let current = 0;
+    const answers = new Array(quizData.length).fill(null); // selected option index
+    const locked = new Array(quizData.length).fill(false); // whether feedback shown/locked
+
+    // Timer state
+    let startTimeMs = null;
+    let timeLeft = TOTAL_SECONDS; // seconds
+    let timerId = null;
+
+    /* ---------------- Elements ---------------- */
+    const startBtn = document.getElementById('startBtn');
+    const quizArea = document.getElementById('quizArea');
+    const questionContainer = document.getElementById('questionContainer');
+    const statusText = document.getElementById('statusText');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const tortoise = document.getElementById('tortoise');
+    const track = document.getElementById('track');
+    const progText = document.getElementById('progText');
+    const resultArea = document.getElementById('resultArea');
+    const timerEl = document.getElementById('timer');
+
+    /* ---------------- Helpers ---------------- */
+    function formatMMSS(totalSeconds) {
+      const m = Math.floor(totalSeconds / 60);
+      const s = totalSeconds % 60;
+      return `${m}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function updateTimerUI() {
+      timerEl.textContent = `Time left: ${formatMMSS(timeLeft)}`;
+    }
+
+    function startTimer() {
+      startTimeMs = Date.now();
+      updateTimerUI();
+      if (timerId) clearInterval(timerId);
+      timerId = setInterval(() => {
+        timeLeft = Math.max(0, timeLeft - 1);
+        updateTimerUI();
+        if (timeLeft <= 0) {
+          clearInterval(timerId);
+          // auto-finish
+          showResultScreen(true); // true => due to timeout
+        }
+      }, 1000);
+    }
+
+    function stopTimer() {
+      if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+      }
+    }
+
+    function getElapsedSeconds() {
+      // Prefer realtime (Date.now) for accuracy; fallback to TOTAL_SECONDS - timeLeft
+      if (!startTimeMs) return 0;
+      const elapsed = Math.round((Date.now() - startTimeMs) / 1000);
+      return Math.max(elapsed, TOTAL_SECONDS - timeLeft);
+    }
+
+    /* ---------------- Render Question ---------------- */
+    function renderQuestion(index) {
+      const item = quizData[index];
+
+      questionContainer.innerHTML = `
+        <div class="question">
+          <div class="qnum">${index + 1}</div>
+          <div class="qbody">
+            <p class="qtext">${item.q}</p>
+            <div class="options" id="options">
+              ${item.choices.map((choice, i) => `
+                <label class="option">
+                  <input type="radio" name="choice" value="${i}">
+                  <div style="font-weight:800;color:var(--deep)">${choice}</div>
+                </label>
+              `).join('')}
+            </div>
+            <div class="feedback-box" id="feedback"></div>
+          </div>
+        </div>
+      `;
+
+      // restore selection if exists
+      if (answers[index] !== null) {
+        const input = questionContainer.querySelector(`input[value="${answers[index]}"]`);
+        if (input) input.checked = true;
+      }
+
+      // bind option clicks
+      questionContainer.querySelectorAll('.option').forEach((label, i) => {
+        label.addEventListener('click', () => {
+          const input = label.querySelector('input');
+          input.checked = true;
+          answers[index] = Number(input.value);
+          if (!locked[index]) {
+            nextBtn.disabled = false;
+            nextBtn.textContent = 'Next';
+          }
+        });
+      });
+
+      // if locked, re-apply colors and show feedback
+      if (locked[index]) {
+        lockAndColorQuestion(index);
+        showFeedback(index);
+        nextBtn.textContent = (index === quizData.length - 1) ? 'Finish' : 'Next Question';
+        nextBtn.disabled = false;
+      } else {
+        nextBtn.textContent = 'Next';
+        nextBtn.disabled = (answers[index] === null);
+      }
+
+      prevBtn.disabled = index === 0;
+      statusText.textContent = `Question ${index + 1} of ${quizData.length}`;
+
+      typesetNow();
+    }
+
+    /* ---------------- Lock + Color ---------------- */
+    function lockAndColorQuestion(index) {
+      const optionsEl = questionContainer.querySelector('.options');
+      if (!optionsEl) return;
+
+      const labels = optionsEl.querySelectorAll('.option');
+      const selected = answers[index];
+      labels.forEach((lab, i) => {
+        const inp = lab.querySelector('input');
+        if (inp) inp.disabled = true;
+        lab.classList.remove('correct', 'incorrect');
+        if (i === quizData[index].correct) lab.classList.add('correct');
+        if (i === selected && selected !== quizData[index].correct) lab.classList.add('incorrect');
+      });
+    }
+
+    /* ---------------- Feedback ---------------- */
+    function showFeedback(index) {
+      const fb = document.getElementById('feedback');
+      fb.style.display = 'block';
+      fb.innerHTML = quizData[index].explain;   // contains MathJax
+      typesetNow();
+    }
+
+    /* ---------------- Progress (move after lock) ---------------- */
+    function updateProgress() {
+      const lockedCount = locked.filter(Boolean).length;
+      const pct = Math.round((lockedCount / quizData.length) * 100);
+      progText.textContent = `${lockedCount} / ${quizData.length}`;
+      track.setAttribute('aria-valuenow', pct);
+
+      const trackWidth = Math.max(track.offsetWidth - 80, 120);
+      const leftPx = 8 + Math.round((lockedCount / quizData.length) * trackWidth);
+      tortoise.style.left = leftPx + 'px';
+    }
+
+    /* ---------------- Navigation ---------------- */
+    startBtn.addEventListener('click', () => {
+      document.getElementById('startCard').style.display = 'none';
+      quizArea.style.display = 'block';
+      current = 0;
+      answers.fill(null);
+      locked.fill(false);
+      resultArea.innerHTML = '';
+      timeLeft = TOTAL_SECONDS;
+      startTimer();
+
+      renderQuestion(current);
+      updateProgress();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (current > 0) {
+        current--;
+        renderQuestion(current);
+        updateProgress();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      // Phase 1: show feedback (lock) if not yet locked
+      if (!locked[current]) {
+        if (answers[current] === null) {
+          alert('Please select an answer before pressing Next.');
+          return;
+        }
+        locked[current] = true;
+        lockAndColorQuestion(current);
+        showFeedback(current);
+        updateProgress();
+        nextBtn.textContent = (current === quizData.length - 1) ? 'Finish' : 'Next Question';
+        return;
+      }
+
+      // Phase 2: go to next (or finish)
+      if (current < quizData.length - 1) {
+        current++;
+        renderQuestion(current);
+        updateProgress();
+      } else {
+        showResultScreen(false);
+      }
+    });
+
+    function showResultScreen(dueToTimeout) {
+      stopTimer();
+      quizArea.style.display = 'none';
+
+      const score = answers.reduce((acc, val, i) => acc + (val === quizData[i].correct ? 1 : 0), 0);
+      const percent = Math.round((score / quizData.length) * 100);
+      const elapsed = getElapsedSeconds();
+
+      resultArea.innerHTML = `
+        <div class="quiz-card score-panel" role="status" aria-live="polite">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+            <div>
+              <div style="font-size:14px;color:var(--muted)">${dueToTimeout ? 'Time up!' : 'Your Score'}</div>
+              <div class="big-score">${score} / ${quizData.length}</div>
+              <div style="color:var(--muted);font-weight:800">${percent}%</div>
+              <div style="margin-top:6px;color:var(--muted)">Time taken: <strong style="color:var(--deep)">${formatMMSS(elapsed)}</strong></div>
+            </div>
+            <div style="min-width:220px;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-endion.reload()">Try Again</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Keep progress responsive
+    window.addEventListener('resize', updateProgress);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && !nextBtn.disabled) nextBtn.click();
+      if (e.key === 'ArrowLeft' && !prevBtn.disabled) prevBtn.click();
+    });
+  </script>
+</body>
+
+</html>
