@@ -425,19 +425,19 @@
     /* ---------------- Quiz data ---------------- */
     const quizData = [
       {
-        q: "If y is directly proportional to x, and y = 12 when x = 3, what is the constant of proportionality (k)?",
+        q: "If \\(y\\) is directly proportional to \\(x\\), and \\(y = 12\\) when \\(x = 3\\), what is the constant of proportionality (\\(k\\))?",
         choices: ["36", "4", "0.25", "9"],
         correct: 1,
         explain: `
-      For direct proportion, y = kx. Substituting the values: 12 = k × 3. Therefore, k = 12 ÷ 3 = 4.
+      For direct proportion, \\(y = kx\\). Substituting the values: \\(12 = k \\times 3\\). Therefore, \\(k = \\frac{12}{3} = 4\\).
     `
       },
       {
-        q: "Which of the following equations represents an inverse proportion between x and y?",
-        choices: ["y = 5x", "y = x + 5", "xy = 10", "y/x = 10"],
+        q: "Which of the following equations represents an inverse proportion between \\(x\\) and \\(y\\)?",
+        choices: ["\\(y = 5x\\)", "\\(y = x + 5\\)", "\\(xy = 10\\)", "\\(\\frac{y}{x} = 10\\)"],
         correct: 2,
         explain: `
-      In an inverse proportion, the product of the two variables is constant (xy = k). Options A and D represent direct proportion, and B is a linear relationship but not a proportion.
+      In an inverse proportion, the product of the two variables is constant (\\(xy = k\\)). Options A and D represent direct proportion, and B is a linear relationship but not a proportion.
     `
       },
       {
@@ -445,7 +445,7 @@
         choices: ["20 days", "15 days", "5 days", "8 days"],
         correct: 2,
         explain: `
-      This is an inverse proportion because more men will take less time. M1 &times; D1 = M2 &times; D2. So, 6 &times; 10 = 12 &times; x &rarr; 60 = 12x &rarr; x = 60 &divide; 12 = 5.
+      This is an inverse proportion because more men will take less time. \\(M_1 \\times D_1 = M_2 \\times D_2\\). So, \\(6 \\times 10 = 12 \\times x \\Rightarrow 60 = 12x \\Rightarrow x = \\frac{60}{12} = 5\\).
     `
       },
       {
@@ -458,7 +458,7 @@
         ],
         correct: 1,
         explain: `
-      A direct proportion (y = kx) always results in a straight line that passes through the origin because if x = 0, y must also be 0.
+      A direct proportion (\\(y = kx\\)) always results in a straight line that passes through the origin because if \\(x = 0\\), \\(y\\) must also be 0.
     `
       },
       {
@@ -483,7 +483,7 @@
         ],
         correct: 2,
         explain: `
-      In inverse proportion, as one value increases, the other decreases by the same factor. Doubling b (×2) means a must be divided by 2.
+      In inverse proportion, as one value increases, the other decreases by the same factor. Doubling \\(b\\) (\\(\\times 2\\)) means \\(a\\) must be divided by 2.
     `
       },
       {
@@ -500,20 +500,20 @@
       {
         q: "Which table represents an inverse proportion?",
         choices: [
-          `x | 1 | 2 | 3<br>y | 5 | 10 | 15`,
-          `x | 2 | 4 | 8<br>y | 12 | 6 | 3`,
-          `x | 4 | 5 | 6<br>y | 8 | 10 | 12`,
-          `x | 1 | 2 | 3<br>y | 1 | 4 | 9`
+          `<table style="margin:0 auto;border-collapse:collapse;text-align:center"><tr><td style="padding:4px 10px;border:1px solid #ccc">x</td><td style="padding:4px 10px;border:1px solid #ccc">1</td><td style="padding:4px 10px;border:1px solid #ccc">2</td><td style="padding:4px 10px;border:1px solid #ccc">3</td></tr><tr><td style="padding:4px 10px;border:1px solid #ccc">y</td><td style="padding:4px 10px;border:1px solid #ccc">5</td><td style="padding:4px 10px;border:1px solid #ccc">10</td><td style="padding:4px 10px;border:1px solid #ccc">15</td></tr></table>`,
+          `<table style="margin:0 auto;border-collapse:collapse;text-align:center"><tr><td style="padding:4px 10px;border:1px solid #ccc">x</td><td style="padding:4px 10px;border:1px solid #ccc">2</td><td style="padding:4px 10px;border:1px solid #ccc">4</td><td style="padding:4px 10px;border:1px solid #ccc">8</td></tr><tr><td style="padding:4px 10px;border:1px solid #ccc">y</td><td style="padding:4px 10px;border:1px solid #ccc">12</td><td style="padding:4px 10px;border:1px solid #ccc">6</td><td style="padding:4px 10px;border:1px solid #ccc">3</td></tr></table>`,
+          `<table style="margin:0 auto;border-collapse:collapse;text-align:center"><tr><td style="padding:4px 10px;border:1px solid #ccc">x</td><td style="padding:4px 10px;border:1px solid #ccc">4</td><td style="padding:4px 10px;border:1px solid #ccc">5</td><td style="padding:4px 10px;border:1px solid #ccc">6</td></tr><tr><td style="padding:4px 10px;border:1px solid #ccc">y</td><td style="padding:4px 10px;border:1px solid #ccc">8</td><td style="padding:4px 10px;border:1px solid #ccc">10</td><td style="padding:4px 10px;border:1px solid #ccc">12</td></tr></table>`,
+          `<table style="margin:0 auto;border-collapse:collapse;text-align:center"><tr><td style="padding:4px 10px;border:1px solid #ccc">x</td><td style="padding:4px 10px;border:1px solid #ccc">1</td><td style="padding:4px 10px;border:1px solid #ccc">2</td><td style="padding:4px 10px;border:1px solid #ccc">3</td></tr><tr><td style="padding:4px 10px;border:1px solid #ccc">y</td><td style="padding:4px 10px;border:1px solid #ccc">1</td><td style="padding:4px 10px;border:1px solid #ccc">4</td><td style="padding:4px 10px;border:1px solid #ccc">9</td></tr></table>`
         ],
         correct: 1,
         explain: `
-    In Table B, product xy is constant: 2 × 12 = 24; 4 × 6 = 24; and 8 × 3 = 24.
+    In Table B, product \\(xy\\) is constant: \\(2 \\times 12 = 24\\); \\(4 \\times 6 = 24\\); and \\(8 \\times 3 = 24\\).
   `
       },
 
       {
         q: "Which graph correctly illustrates an Inverse Proportion?",
-        optionImages: ["imgs/u3q9a.png", "imgs/u3q9b.png", "imgs/u3q9c.png", "imgs/u3q9d.png"],
+        optionImages: ["u3q9a.png", "u3q9b.png", "u3q9c.png", "u3q9d.png"],
         choices: [
           "Straight line going upwards",
           "Hyperbolic curve approaching axes",
@@ -522,7 +522,7 @@
         ],
         correct: 1,
         explain: `
-      The graph of an inverse proportion (y = k/x) is a curve. As x increases, y decreases, but neither value ever reaches zero.
+      The graph of an inverse proportion \\(y = \\frac{k}{x}\\) is a curve. As \\(x\\) increases, \\(y\\) decreases, but neither value ever reaches zero.
     `
       },
       {
@@ -530,9 +530,9 @@
         choices: ["150 km", "187.5 km", "200 km", "375 km"],
         correct: 1,
         explain: `
-      Direct proportion: 2 cm &rarr; 50 km<br>
+      Direct proportion: 2 cm \\(\\rightarrow\\) 50 km<br>
       \\[
-        \\frac{2}{50} = \\frac{7.5}{x} \\Rightarrow 2x = 50 × 7.5 = 375 \\Rightarrow x = \\frac{375}{2} = 187.5 \\text{ km}
+        \\frac{2}{50} = \\frac{7.5}{x} \\Rightarrow 2x = 50 \\times 7.5 = 375 \\Rightarrow x = \\frac{375}{2} = 187.5 \\text{ km}
       \\]
     `
       }
@@ -685,7 +685,7 @@
           answers[index] = Number(input.value);
           if (!locked[index]) {
             nextBtn.disabled = false;
-            nextBtn.textContent = 'Next';
+            nextBtn.textContent = 'Submit';
           }
         });
       });
@@ -697,7 +697,7 @@
         nextBtn.textContent = (index === quizData.length - 1) ? 'Finish' : 'Next';
         nextBtn.disabled = false;
       } else {
-        nextBtn.textContent = 'Next';
+        nextBtn.textContent = 'Submit';
         nextBtn.disabled = (answers[index] === null);
       }
 
@@ -789,7 +789,7 @@
       // Phase 1: show feedback (lock) if not yet locked
       if (!locked[current]) {
         if (answers[current] === null) {
-          alert('Please select an answer before pressing Next.');
+          alert('Please select an answer before pressing Submit.');
           return;
         }
         locked[current] = true;
@@ -888,6 +888,7 @@
         reviewList.classList.toggle('open', reviewOpen);
         reviewToggleBtn.textContent = reviewOpen ? 'Hide Answers' : 'Review Answers';
       });
+      typesetNow();
     }
 
     // Keep progress responsive
